@@ -47,11 +47,19 @@ namespace csharp_biblioteca
         {
             //Set instance
             Book b1 = new Book("Balena", 2002, "Narrative", 25, "judsb", 400);
-           
+            Book b2 = new Book("pippo", 2002, "Narrative", 25, "judsb", 400);
+            Book b3 = new Book("paperino", 2002, "Fumetto", 10, "judsb", 400);
+            Book b4 = new Book("The promised Neverland", 2019, "Manga", 10, "xiao", 50);
+
+
             //Creation List
             List<Book> users = new List<Book>();
             users.Add(b1);
-            
+            users.Add(b2);
+            users.Add(b3);
+            users.Add(b4);
+
+
 
             Console.WriteLine("Ricerca x nome:");
             string nameToFind = Console.ReadLine();
@@ -69,7 +77,7 @@ namespace csharp_biblioteca
             }
             else
             {
-                Console.WriteLine($"No users found with name '{bookWithName}'.");
+                Console.WriteLine($"No books found with title '{bookWithName}'.");
             }
         }
 
