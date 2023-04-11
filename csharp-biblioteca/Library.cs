@@ -39,9 +39,6 @@ namespace csharp_biblioteca
                 Console.WriteLine($"No users found with name '{nameToFind}'.");
             }
 
-
-            Book b1 = new Book("balena", 2001, "narrativa", 5, "avsacv", 200);
-
         }
 
         
