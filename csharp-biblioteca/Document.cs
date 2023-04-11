@@ -8,9 +8,11 @@ namespace csharp_biblioteca
 {
     internal class Document
     {
+        public string Code { get; set; }
 
         public Document(string title, int year, string sector, int position, string autor)
         {
+            this.Code = GenerateCode();
             this.Title = title;
             this.Year = year;
             this.Sector = sector;
@@ -18,6 +20,7 @@ namespace csharp_biblioteca
             this.Autor = autor;
         }
 
+        
         public string Title { get; set; }
         public int Year { get; set; }
         public string Sector { get; set; }
@@ -25,5 +28,13 @@ namespace csharp_biblioteca
         public string Autor { get; set; }
         //public bool disponibility { get; set; }
 
+        public string GenerateCode()
+        {
+            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var random = new Random();
+            var code = new string(Enumerable.Repeat(chars, 9)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+            return code;
+        }
     }
 }

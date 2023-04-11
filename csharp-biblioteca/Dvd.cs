@@ -9,7 +9,7 @@ namespace csharp_biblioteca
     internal class Dvd : Document
     {
 
-        public Dvd(string title, int year, string sector, int position, string autor, int timing) : base(title, year, sector, position, autor)
+        public Dvd(string code, string title, int year, string sector, int position, string autor, int timing) : base(title, year, sector, position, autor)
         {
             this.Timing = timing;
         }

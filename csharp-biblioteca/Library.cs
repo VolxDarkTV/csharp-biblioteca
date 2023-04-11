@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace csharp_biblioteca
@@ -9,68 +11,77 @@ namespace csharp_biblioteca
     internal class Library
     {
 
-        public void LibraryNameSearch() 
-        {
+        //public void LibraryNameSearch() 
+        //{
 
-            User u1 = new User("vincenzo", "FOTI", "vincewnzo.foti02@gmail.coms", "password", "+39 3664248926");
-            User u2 = new User("giGi", "FOTI", "vincewnzo.foti@gmail.com", "password", "+39 3664248926");
-            User u3 = new User("test", "FOTI", "vincewnzo.foti@gmail.com", "password", "+39 3664248926");
-            User u4 = new User("vincenzo", "FOTI", "vincewnzo.foti04@gmail.com", "password", "+39 3664248926");
-            List<User> users = new List<User>();
-            users.Add(u1);
-            users.Add(u2);
-            users.Add(u3);
-            users.Add(u4);
+        //    User u1 = new User("vincenzo", "FOTI", "vincewnzo.foti02@gmail.coms", "password", "+39 3664248926");
+        //    User u2 = new User("giGi", "FOTI", "vincewnzo.foti@gmail.com", "password", "+39 3664248926");
+        //    User u3 = new User("test", "FOTI", "vincewnzo.foti@gmail.com", "password", "+39 3664248926");
+        //    User u4 = new User("vincenzo", "FOTI", "vincewnzo.foti04@gmail.com", "password", "+39 3664248926");
+        //    List<User> users = new List<User>();
+        //    users.Add(u1);
+        //    users.Add(u2);
+        //    users.Add(u3);
+        //    users.Add(u4);
 
-            Console.WriteLine("Ricerca x nome:");
-            string nameToFind = Console.ReadLine();
+        //    Console.WriteLine("Ricerca x nome:");
+        //    string nameToFind = Console.ReadLine();
 
-            List<User> usersWithName = users.Where(x => x.Name.ToLower() == nameToFind.ToLower()).ToList();
+        //    List<User> usersWithName = users.Where(x => x.Name.ToLower() == nameToFind.ToLower()).ToList();
 
-            if (usersWithName.Count > 0)
-            {
-                Console.WriteLine($"Users with name '{nameToFind}':");
-                foreach (User user in usersWithName)
-                {
-                    Console.WriteLine($"{user.Name} {user.Last} {user.Email}");
-                }
-            }
-            else
-            {
-                Console.WriteLine($"No users found with name '{nameToFind}'.");
-            }
+        //    if (usersWithName.Count > 0)
+        //    {
+        //        Console.WriteLine($"Users with name '{nameToFind}':");
+        //        foreach (User user in usersWithName)
+        //        {
+        //            Console.WriteLine($"{user.Name} {user.Last} {user.Email}");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine($"No users found with name '{nameToFind}'.");
+        //    }
 
-        }
+        //}
 
+        public List<Document> Documents = new List<Document>();
 
         public void LibraryBookSearch()
         {
+            
             //Set instance
             Book b1 = new Book("Balena", 2002, "Narrative", 25, "judsb", 400);
             Book b2 = new Book("pippo", 2002, "Narrative", 25, "judsb", 400);
             Book b3 = new Book("paperino", 2002, "Fumetto", 10, "judsb", 400);
             Book b4 = new Book("The promised Neverland", 2019, "Manga", 10, "xiao", 50);
 
-
             //Creation List
-            List<Book> users = new List<Book>();
-            users.Add(b1);
-            users.Add(b2);
-            users.Add(b3);
-            users.Add(b4);
+            Documents.Add(b1);
+            Documents.Add(b2);
+            Documents.Add(b3);
+            Documents.Add(b4);
+
+           
+            //Code view
+            string test1 = b1.Code;
+            string test2 = b2.Code;
+            string test3 = b3.Code;
+            string test4 = b4.Code;
 
 
+            Console.WriteLine($"Libro1: {test1} - Libro2: {test2} - Libro3: {test3} - Libro4: {test4}");
 
-            Console.WriteLine("Ricerca x nome:");
+            Console.WriteLine("Ricerca x title or book code:");
             string nameToFind = Console.ReadLine();
 
-            //Search filter
-            List<Book> bookWithName = users.Where(x => x.Title.ToLower() == nameToFind.ToLower()).ToList();
+            //Search filter Title
+            List<Document> bookWithTitle = Documents.Where(x => (x.Title.ToLower() == nameToFind.ToLower()) || (x.Code == nameToFind)).ToList();
+            
 
-            if (bookWithName.Count > 0)
+            if (bookWithTitle.Count > 0)
             {
-                Console.WriteLine($"Users with name '{nameToFind}':");
-                foreach (Book book in bookWithName)
+                Console.WriteLine($"Book with title/code'{nameToFind}':");
+                foreach (Book book in bookWithTitle)
                 {
                     Console.WriteLine($"{book.Title} {book.Year} {book.Autor}");
                 }
@@ -79,6 +90,9 @@ namespace csharp_biblioteca
             {
                 Console.WriteLine($"No books found with title '{nameToFind}'.");
             }
+
+            
+
         }
 
 
