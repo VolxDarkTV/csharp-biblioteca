@@ -8,7 +8,14 @@ namespace csharp_biblioteca
 {
     internal class Document
     {
+
         public string Code { get; set; }
+
+        //Disponibility & Date
+        public bool Disponibility { get; set; }
+        public string DateStart { get; set; }
+        public string DateEnd { get; set; }
+
 
         public Document(string title, int year, string sector, int position, string autor)
         {
@@ -18,6 +25,9 @@ namespace csharp_biblioteca
             this.Sector = sector;
             this.Position = position;
             this.Autor = autor;
+
+            this.Disponibility = true;
+
         }
 
         
@@ -26,7 +36,6 @@ namespace csharp_biblioteca
         public string Sector { get; set; }
         public int Position { get; set; }
         public string Autor { get; set; }
-        //public bool disponibility { get; set; }
 
         public string GenerateCode()
         {

@@ -84,6 +84,32 @@ namespace csharp_biblioteca
                 foreach (Book book in bookWithTitle)
                 {
                     Console.WriteLine($"{book.Title} {book.Year} {book.Autor}");
+
+                    if(book.Disponibility == true)
+                    {
+                        Console.WriteLine("Il libro/dvd è libero, vuoi noleggiarlo? S/n");
+                        string userAnsware = Console.ReadLine();
+                        if(userAnsware.ToLower() == "s")
+                        {
+                            book.Disponibility = false;
+                            Console.WriteLine($"Congratulazioni hai noleggiato {book.Title}");
+                            DateTime now = DateTime.Now;
+                            book.DateStart = Convert.ToString($"{now.Date.Day}/{now.Date.Month}/{now.Date.Year}");
+                            Console.WriteLine($"Data Inizio: {book.DateStart}");
+
+                            Console.WriteLine("Inserire data di fine noleggio dd/mm/yyyy: ");
+                            book.DateEnd = Console.ReadLine();
+                            Console.WriteLine($"Data Fine: {book.DateEnd}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Non hai noleggiato :(");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Libro/Dvd Non disponibile al momento");
+                    }
                 }
             }
             else
