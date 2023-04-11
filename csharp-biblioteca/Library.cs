@@ -13,7 +13,7 @@ namespace csharp_biblioteca
         {
 
             User u1 = new User("vincenzo", "FOTI", "vincewnzo.foti02@gmail.coms", "password", "+39 3664248926");
-            User u2 = new User("gigi", "FOTI", "vincewnzo.foti@gmail.com", "password", "+39 3664248926");
+            User u2 = new User("giGi", "FOTI", "vincewnzo.foti@gmail.com", "password", "+39 3664248926");
             User u3 = new User("test", "FOTI", "vincewnzo.foti@gmail.com", "password", "+39 3664248926");
             User u4 = new User("vincenzo", "FOTI", "vincewnzo.foti04@gmail.com", "password", "+39 3664248926");
             List<User> users = new List<User>();
@@ -22,9 +22,10 @@ namespace csharp_biblioteca
             users.Add(u3);
             users.Add(u4);
 
-            string nameToFind = "vincenzo";
+            Console.WriteLine("Ricerca x nome:");
+            string nameToFind = Console.ReadLine();
 
-            List<User> usersWithName = users.Where(x => x.Name == nameToFind).ToList();
+            List<User> usersWithName = users.Where(x => x.Name.ToLower() == nameToFind.ToLower()).ToList();
 
             if (usersWithName.Count > 0)
             {
