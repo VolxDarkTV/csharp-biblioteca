@@ -77,7 +77,7 @@ namespace csharp_biblioteca
             }
             else
             {
-                Console.WriteLine($"No books found with title '{bookWithName}'.");
+                Console.WriteLine($"No books found with title '{nameToFind}'.");
             }
         }
 
