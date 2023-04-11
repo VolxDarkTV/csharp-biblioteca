@@ -42,7 +42,38 @@ namespace csharp_biblioteca
 
         }
 
-        
+
+        public void LibraryBookSearch()
+        {
+            //Set instance
+            Book b1 = new Book("Balena", 2002, "Narrative", 25, "judsb", 400);
+           
+            //Creation List
+            List<Book> users = new List<Book>();
+            users.Add(b1);
+            
+
+            Console.WriteLine("Ricerca x nome:");
+            string nameToFind = Console.ReadLine();
+
+            //Search filter
+            List<Book> bookWithName = users.Where(x => x.Title.ToLower() == nameToFind.ToLower()).ToList();
+
+            if (bookWithName.Count > 0)
+            {
+                Console.WriteLine($"Users with name '{nameToFind}':");
+                foreach (Book book in bookWithName)
+                {
+                    Console.WriteLine($"{book.Title} {book.Year} {book.Autor}");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"No users found with name '{bookWithName}'.");
+            }
+        }
+
+
 
     }
 }

@@ -35,6 +35,9 @@
 
             Library l1 = new Library();
             l1.LibraryNameSearch();
+
+            l1.LibraryBookSearch();
+
             Console.ReadLine();
 
         }
