@@ -16,6 +16,11 @@ namespace csharp_biblioteca
         public string DateStart { get; set; }
         public string DateEnd { get; set; }
 
+        public string Title { get; set; }
+        public int Year { get; set; }
+        public string Sector { get; set; }
+        public int Position { get; set; }
+        public string Autor { get; set; }
 
         public Document(string title, int year, string sector, int position, string autor)
         {
@@ -31,12 +36,7 @@ namespace csharp_biblioteca
         }
 
         
-        public string Title { get; set; }
-        public int Year { get; set; }
-        public string Sector { get; set; }
-        public int Position { get; set; }
-        public string Autor { get; set; }
-
+        
         public string GenerateCode()
         {
             string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

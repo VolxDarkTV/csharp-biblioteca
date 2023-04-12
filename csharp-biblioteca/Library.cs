@@ -101,10 +101,10 @@ namespace csharp_biblioteca
             users.Add(u1);
             users.Add(u2);
             users.Add(u3);
-            users.Add(u4
+            users.Add(u4);
             Console.WriteLine("Ricerca x nome:");
-            string nameToFind = Console.ReadLine
-            List<User> usersWithName = users.Where(x => x.Name.ToLower() == nameToFind.ToLower()).ToList
+            string nameToFind = Console.ReadLine();
+            List<User> usersWithName = users.Where(x => x.Name.ToLower() == nameToFind.ToLower()).ToList();
 
             if (usersWithName.Count > 0)
             {
