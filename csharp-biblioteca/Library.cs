@@ -13,9 +13,12 @@ namespace csharp_biblioteca
 
         public List<Document> Documents = new List<Document>();
 
+        public List<User> Users = new List<User>();
+
+        User u1 = new User("Vincenzo", "Foti", "vincenzo.foti@gmail.com", "gigi", "+39 3664248926");
+
         public void LibraryBookSearch()
         {
-            
 
             //Set instance
             Book b1 = new Book("Balena", 2002, "Narrative", 25, "judsb", 400);
@@ -29,7 +32,7 @@ namespace csharp_biblioteca
             Documents.Add(b3);
             Documents.Add(b4);
 
-           
+            
             //Book Code view Debug
             string test1 = b1.Code;
             string test2 = b2.Code;
@@ -60,6 +63,7 @@ namespace csharp_biblioteca
                         if(userAnsware.ToLower() == "s")
                         {
                             book.Disponibility = false;
+                            
                             Console.WriteLine($"Congratulazioni hai noleggiato {book.Title}");
                             DateTime now = DateTime.Now;
                             book.DateStart = Convert.ToString($"{now.Date.Day}/{now.Date.Month}/{now.Date.Year}");
