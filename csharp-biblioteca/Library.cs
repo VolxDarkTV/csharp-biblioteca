@@ -30,14 +30,14 @@ namespace csharp_biblioteca
             Documents.Add(b4);
 
            
-            //Code view
+            //Book Code view Debug
             string test1 = b1.Code;
             string test2 = b2.Code;
             string test3 = b3.Code;
             string test4 = b4.Code;
 
-
             Console.WriteLine($"Libro1: {test1} - Libro2: {test2} - Libro3: {test3} - Libro4: {test4}");
+
 
             Console.WriteLine("Ricerca x title or book code:");
             string nameToFind = Console.ReadLine();
@@ -88,8 +88,11 @@ namespace csharp_biblioteca
 
         }
 
-        public void LibraryNameSearch() 
-        
+       
+
+         public void LibraryNameSearch()
+         {
+
             User u1 = new User("vincenzo", "FOTI", "vincewnzo.foti02@gmail.coms", "password", "+39 3664248926");
             User u2 = new User("giGi", "FOTI", "vincewnzo.foti@gmail.com", "password", "+39 3664248926");
             User u3 = new User("test", "FOTI", "vincewnzo.foti@gmail.com", "password", "+39 3664248926");
@@ -102,6 +105,7 @@ namespace csharp_biblioteca
             Console.WriteLine("Ricerca x nome:");
             string nameToFind = Console.ReadLine
             List<User> usersWithName = users.Where(x => x.Name.ToLower() == nameToFind.ToLower()).ToList
+
             if (usersWithName.Count > 0)
             {
                 Console.WriteLine($"Users with name '{nameToFind}':");
@@ -113,8 +117,18 @@ namespace csharp_biblioteca
             else
             {
                 Console.WriteLine($"No users found with name '{nameToFind}'.");
-            
-        }
+            }
+
+         }
+        
+
+
+
+
+
+
+
+
 
 
     }
